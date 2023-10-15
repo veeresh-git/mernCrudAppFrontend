@@ -24,7 +24,8 @@ const Login = () => {
     e.preventDefault();
 
     const { userName, password } = inpval;
-    if(!userName||!password) alert("Please enter both Username and Password!")
+    if (!userName || !password)
+      alert("Please enter both Username and Password!");
     try {
       const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/login`, {
         method: "POST",
@@ -43,8 +44,7 @@ const Login = () => {
         alert("error");
       } else {
         localStorage.setItem("curdAppToken", data?.data?.token);
-        history.push("/");
-        window.location.reload();
+        history.push("/Dashboard");
       }
     } catch (err) {
       console.log(err);

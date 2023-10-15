@@ -8,12 +8,12 @@ const Navbaar = () => {
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
+          <NavLink className="navbar-brand" to="/Dashboard">
             CRUD APP
           </NavLink>
           <div className="d-flex">
             <div className="mx-4">
-              <NavLink className="navbar-item" to="/">
+              <NavLink className="navbar-item" to="/Dashboard">
                 Home
               </NavLink>
             </div>
@@ -58,8 +58,7 @@ const Navbaar = () => {
             className="btn btn-danger"
             onClick={() => {
               localStorage.clear();
-              history.push("/Login");
-              window.location.reload();
+              history.push("/");
             }}
           >
             Logout

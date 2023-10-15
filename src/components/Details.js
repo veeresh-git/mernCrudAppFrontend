@@ -46,25 +46,29 @@ const Details = () => {
   }, []);
 
   const deleteuser = async (id) => {
-    const res2 = await fetch(
-      `${process.env.REACT_APP_API_BASE_URL}/deleteuser/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: localStorage.getItem("curdAppToken"),
-        },
+    try {
+      const res2 = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/deleteuser/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: localStorage.getItem("curdAppToken"),
+          },
+        }
+      );
+
+      const deletedata = await res2.json();
+      console.log(deletedata);
+
+      if (res2.status === 422 || !deletedata) {
+        console.log("error");
+      } else {
+        console.log("user deleted");
+        history.push("/registrations");
       }
-    );
-
-    const deletedata = await res2.json();
-    console.log(deletedata);
-
-    if (res2.status === 422 || !deletedata) {
-      console.log("error");
-    } else {
-      console.log("user deleted");
-      history.push("/");
+    } catch (err) {
+      console.log(err);
     }
   };
 
