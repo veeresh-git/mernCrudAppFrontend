@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { adddata } from "./context/ContextProvider";
 
 const Register = () => {
-  const { udata, setUdata } = useContext(adddata);
+  const { setUdata } = useContext(adddata);
 
   const history = useHistory();
 
@@ -52,7 +52,7 @@ const Register = () => {
       const data = await res.json();
 
       if (res.status === 422) {
-        console.log("error ",data);
+        console.log("error ", data);
         alert(data);
       } else {
         history.push("/registrations");

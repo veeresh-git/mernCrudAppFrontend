@@ -18,6 +18,7 @@ function App() {
   useEffect(() => {
     if (localStorage && !localStorage.getItem("curdAppToken"))
       history.push("/Login");
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

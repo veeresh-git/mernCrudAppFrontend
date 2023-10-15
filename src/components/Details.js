@@ -6,7 +6,6 @@ import CardContent from "@mui/material/CardContent";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import WorkIcon from "@mui/icons-material/Work";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { NavLink, useParams, useHistory } from "react-router-dom";
 
 const Details = () => {
@@ -43,6 +42,7 @@ const Details = () => {
 
   useEffect(() => {
     getdata();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteuser = async (id) => {

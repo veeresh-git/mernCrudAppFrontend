@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { NavLink, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { updatedata } from "./context/ContextProvider";
 
 const Edit = () => {
   // const [getuserdata, setUserdata] = useState([]);
   // console.log(getuserdata);
 
-  const { updata, setUPdata } = useContext(updatedata);
+  const { setUPdata } = useContext(updatedata);
 
   const history = useHistory("");
 
@@ -57,6 +57,7 @@ const Edit = () => {
 
   useEffect(() => {
     getdata();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateuser = async (e) => {
